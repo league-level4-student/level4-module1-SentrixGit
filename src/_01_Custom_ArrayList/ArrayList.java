@@ -20,7 +20,6 @@ public class ArrayList <T> {
 	}
 	
 	public T get(int loc) throws IndexOutOfBoundsException {
-		
 		return customArray[loc];
 	}
 	
@@ -37,15 +36,50 @@ public class ArrayList <T> {
 	}
 	
 	public void insert(int loc, T val) throws IndexOutOfBoundsException {
+		T[] temp = customArray;
+		boolean inserted = false;
 		
+		customArray = (T[]) new Object[temp.length + 1];
+		
+		for (int i = 0; i < customArray.length; i++) {
+			if (i == loc) {
+				customArray[i] = val;
+				inserted = true;
+			} else if (inserted) {
+				customArray[i] = temp[i - 1];
+			} else {
+				customArray[i] = temp[i];
+			}
+		}
 	}
 	
 	public void set(int loc, T val) throws IndexOutOfBoundsException {
-		
+		customArray[loc] = val;
 	}
 	
 	public void remove(int loc) throws IndexOutOfBoundsException {
+		T[] temp = (T[]) new Object[customArray.length - 1];
 		
+		int index = 0;
+		
+		for (int i = 0; i < customArray.length; i++ ) {
+			if (i != loc) {
+				temp[index] = customArray[i];
+				index++;
+			}
+		}
+		
+		customArray = temp;
+	}
+	
+	public int size() throws IndexOutOfBoundsException {
+		int count = 0;
+		
+		for (int i = 0; i < customArray.length; i++) {
+			count++;
+		}
+		
+		return count;
 	}
 	
 	public boolean contains(T val) {

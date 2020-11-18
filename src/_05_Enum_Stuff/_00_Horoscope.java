@@ -8,7 +8,12 @@ public class _00_Horoscope {
 	
 	// 2. Write a method that takes in a Zodiac enum object and uses a JOPtionPane to display
 	//    a different horoscope based on the Zodiac's state.
-	
+	public static void main(String[] args) {
+		JOptionPane.showOptionDialog(null, "Choose a Zodiac enum object!", "Enums!!!!!!", 0, -1, null,
+				options, 0);
+
+		
+	}
 	// 3. Make a main method to test your method
 	
 }
