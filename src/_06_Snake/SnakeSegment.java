@@ -8,7 +8,7 @@ public class SnakeSegment {
 
 	public SnakeSegment(Location loc, int size) {
 		this.location = loc;
-		this.size = size;
+		this.size = Snake.BODY_SIZE;
 	}
 	
 	public void setLocation(Location loc) {
